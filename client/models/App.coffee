@@ -41,9 +41,3 @@ class window.App extends Backbone.Model
     @playerWins() if @get('playerHand').bestScore() > @get('dealerHand').bestScore()
     @playerLoses() if @get('playerHand').bestScore() < @get('dealerHand').bestScore()
     @playerPushes() if @get('playerHand').bestScore() == @get('dealerHand').bestScore()
-
-  # checkHands: -> #compares dealer and player hand
-  # processResults: -> #used later once you put in betting
-
-# on dealer end, check who wins. display message
-# @set 'playerHand', deck.dealPlayer() @set 'dealerHand', deck.dealDealer()

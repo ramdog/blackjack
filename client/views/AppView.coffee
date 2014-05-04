@@ -3,11 +3,11 @@ class window.AppView extends Backbone.View
   className: 'poker-table'
 
   template: _.template '
-    <button class="hit-button btn btn-default">Hit</button>
-    <button class="stand-button btn btn-default">Stand</button>
-    <button class="newgame-button btn btn-default">New Game</button>
-    <div class="player-stack">Current Chips: <%= playerChips %></div>
-    <div class="current-bet">Current Bet: <%= currentBet %></div>
+    <button class="hit-button">Hit</button>
+    <button class="stand-button">Stand</button>
+    <button class="newgame-button">New Game</button>
+    <div class="player-stack"><h2>Current Chips: <%= playerChips %></h2></div>
+    <div class="current-bet"><h2>Current Bet: <%= currentBet %></h2></div>
     <div class="player-hand-container"></div>
     <div class="dealer-hand-container"></div>
   '
@@ -19,8 +19,10 @@ class window.AppView extends Backbone.View
 
   initialize: ->
     @render()
-    @model.on 'newGame', => @render()
-    @model.on 'gameEnded', => @render()
+    @model.on 'newGame', =>
+      @render()
+    @model.on 'gameEnded', =>
+      @render()
 
   render: ->
     console.log("rendering")
